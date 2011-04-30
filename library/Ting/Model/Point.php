@@ -37,9 +37,4 @@ class Point extends Base
 
     private $_user;
 
-    public function __construct(argument)
-    {
-        // code...
-    }
-
 }

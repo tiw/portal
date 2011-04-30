@@ -28,6 +28,26 @@ class Base
 {
 
     /**
+     * __construct 
+     * 
+     * @param array $params key is the property name without _, value is the
+     *                      value of the property.
+     * @access public
+     * @return void
+     */
+    public function __construct($params = null)
+    {
+        if (!is_null($params)) {
+            foreach($params as $key => $value) {
+                $property = "_" . $key;
+                if($this->_isProperty($property)) {
+                    $method = "set" . ucfirst($key);
+                    $this->$method($value);
+                }
+            }
+        }
+    }
+    /**
      * __call 
      * dynamic get/set properties
      * 

@@ -1,7 +1,29 @@
 <?php
 
+/**
+ * Test Base Model 
+ * 
+ * PHP version 5.3
+ *
+ * @category Test
+ * @package  Ting\Model
+ * @version $id$
+ * @copyright 
+ * @author Ting Wang 
+ * @license 
+ */
 namespace Ting\Model;
 
+/**
+ * Test Base Model 
+ * 
+ * @category Test
+ * @package  Ting\Model
+ * @version $id$
+ * @copyright 
+ * @author Ting Wang 
+ * @license 
+ */
 class BaseTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -103,6 +125,18 @@ class BaseTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * testUsingContructorToSetProperty 
+     * 
+     * @depends testCanGetNotInitializedProperty
+     * @access public
+     * @return void
+     */
+    public function testUsingContructorToSetProperty()
+    {
+        $aDummy = new DummyModel(array('propertyOne' => 'not a'));
+        $this->assertEquals('not a', $aDummy->getPropertyOne());
+    }
 
 }
 class DummyModel extends Base
