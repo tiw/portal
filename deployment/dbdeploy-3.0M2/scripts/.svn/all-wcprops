@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/qsu_mweb/!svn/ver/1375/trunk/dev/dbdeploy-3.0M2/scripts
+END
+createSchemaVersionTable.ora.sql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/scripts/createSchemaVersionTable.ora.sql
+END
+createSchemaVersionTable.syb-ase.sql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/scripts/createSchemaVersionTable.syb-ase.sql
+END
+createSchemaVersionTable.mysql.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/scripts/createSchemaVersionTable.mysql.sql
+END
+createSchemaVersionTable.db2.sql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/scripts/createSchemaVersionTable.db2.sql
+END
+createSchemaVersionTable.hsql.sql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/scripts/createSchemaVersionTable.hsql.sql
+END
+createSchemaVersionTable.mssql.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/scripts/createSchemaVersionTable.mssql.sql
+END

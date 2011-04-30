@@ -9,6 +9,10 @@ class IndexControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         parent::setUp();
     }
 
+    public function testDummy()
+    {
+        $this->assertTrue(true);
+    }
 
 }
 

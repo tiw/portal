@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/qsu_mweb/!svn/ver/1375/trunk/dev/dbdeploy-3.0M2/example
+END
+hsqldb-1.8.0.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/example/hsqldb-1.8.0.7.jar
+END
+001_create_table.sql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/example/001_create_table.sql
+END
+002_insert_data.sql
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/example/002_insert_data.sql
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/example/build.xml
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/qsu_mweb/!svn/ver/3182/trunk/dev/mweb_ant/com/mweb/ant
+END
+TruncateTable.class
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/qsu_mweb/!svn/ver/1580/trunk/dev/mweb_ant/com/mweb/ant/TruncateTable.class
+END
+CreateDatabase.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/qsu_mweb/!svn/ver/3182/trunk/dev/mweb_ant/com/mweb/ant/CreateDatabase.java
+END
+DropDatabases.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qsu_mweb/!svn/ver/1580/trunk/dev/mweb_ant/com/mweb/ant/DropDatabases.java
+END
+TruncateTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/qsu_mweb/!svn/ver/1579/trunk/dev/mweb_ant/com/mweb/ant/TruncateTable.java
+END

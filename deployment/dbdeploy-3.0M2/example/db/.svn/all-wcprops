@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/qsu_mweb/!svn/ver/1375/trunk/dev/dbdeploy-3.0M2/example/db
+END
+testdb.properties
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/example/db/testdb.properties
+END
+testdb.script
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/example/db/testdb.script
+END

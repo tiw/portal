@@ -1,0 +1,80 @@
+8
+
+dir
+3300
+http://ting@subversion.qs.com/qsu_mweb/trunk/dev/dbdeploy-3.0M2/example
+http://ting@subversion.qs.com/qsu_mweb
+
+
+
+2010-10-05T14:33:51.014176Z
+1375
+nicolas
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+36e239d1-d64b-4e79-a959-948b1a293260
+
+hsqldb-1.8.0.7.jar
+file
+
+
+
+
+2011-03-20T13:02:38.000000Z
+ed0ff8ff5ba782cd6c508d3599039e13
+2010-10-04T13:22:17.434485Z
+1315
+ting
+has-props
+
+db
+dir
+
+001_create_table.sql
+file
+
+
+
+
+2011-03-20T13:02:38.000000Z
+cf0b398acce7d4c1b47db069eb7fb0c6
+2010-10-04T13:22:17.434485Z
+1315
+ting
+
+002_insert_data.sql
+file
+
+
+
+
+2011-03-20T13:02:38.000000Z
+5bf224d54dd622b318b289c1ec679ab3
+2010-10-04T13:22:17.434485Z
+1315
+ting
+
+build.xml
+file
+
+
+
+
+2011-03-20T13:02:38.000000Z
+6c17178d58c86318c11f8c6a5edeacc2
+2010-10-04T13:22:17.434485Z
+1315
+ting
+

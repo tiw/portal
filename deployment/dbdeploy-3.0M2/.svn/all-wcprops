@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/qsu_mweb/!svn/ver/3151/trunk/dev/dbdeploy-3.0M2
+END
+dbdeploy-cli-3.0M2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/dbdeploy-cli-3.0M2.jar
+END
+dbdeploy-cli-3.0M2-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/dbdeploy-cli-3.0M2-sources.jar
+END
+mysql-connector-java-5.1.13-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/mysql-connector-java-5.1.13-bin.jar
+END
+dbdeploy-core-3.0M2-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/dbdeploy-core-3.0M2-sources.jar
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/LICENSE
+END
+dbdeploy-ant-3.0M2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/dbdeploy-ant-3.0M2.jar
+END
+dbdeploy-ant-3.0M2-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/dbdeploy-ant-3.0M2-sources.jar
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/qsu_mweb/!svn/ver/1315/trunk/dev/dbdeploy-3.0M2/README
+END
