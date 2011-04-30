@@ -1,0 +1,25 @@
+<?php
+echo $this->doctype(); 
+?>
+<html>
+<head>
+  <?php echo $this->headTitle()?>
+  <?php
+     $this->headMeta()->appendHttpEquiv(
+            'Content-Type', 
+            'text/html; charset=UTF-8'
+        );
+     echo $this->headMeta() ?>
+  <?php echo $this->headScript() ?>
+
+    </style>
+<script style="text/javascript" src="<?php echo $this->baseUrl()?>/js/common.js"></script>
+<script style="text/javascript" src="<?php echo $this->baseUrl()?>/js/grid.js"></script>
+
+</head>
+<body >
+    <?php echo $this->layout()->content ?>
+</body>
+
+</html>
+

@@ -15,6 +15,7 @@
 -->
     <!--1. add mysql driver -->
     <property name="db.driver" value="com.mysql.jdbc.Driver" />
+    <property name="testdb.driver" value="com.mysql.jdbc.Driver" />
     <!--2. set dns -->
     <property name="url"
 	      value="jdbc:mysql://${db.host}/" />
@@ -88,7 +89,26 @@
     </target>
 
 
+    <target name="init-test"
+        depends="test-drop-create-db, test-create-changelog-table, test-migrate">
+    </target>
 
+    <target name="test-drop-create-db">
+        <antcall target="drop-create-db-general">
+            <param name="driver" value="${testdb.driver}" />
+            <param name="user" value="${testdb.user}" />
+            <param name="pass" value="${testdb.pass}" />
+            <param name="url" value="${test.url}" />
+            <param name="dbname" value="${testdb.name}" />
+        </antcall>
+    </target>
+
+    <target name="test-create-changelog-table">
+        <sql driver="${testdb.driver}" url="${testdb.url}"
+             userid="${testdb.user}" password="${testdb.pass}" classpathref="mysql.classpath" >
+            <fileset file="${dbdeploy_dir}/scripts/createSchemaVersionTable.mysql.sql"/>
+        </sql>
+    </target>
     <!--  description="migrate instance db" -->
     <target name="migrate">
         <dbdeploy driver="${db.driver}" url="${db.url}"
@@ -100,6 +120,13 @@
 
 
 
+    <target name="test-migrate">
+        <dbdeploy driver="${testdb.driver}" url="${testdb.url}"
+                  userid="${testdb.user}"
+                  password="${testdb.pass}"
+                  dir="${delta_dir}"
+                />
+    </target>
 
 
 

@@ -25,16 +25,60 @@ namespace Ting\Model
  */
 class Point extends Base
 {
-    private $_id;
+    /**
+     * _id 
+     * 
+     * id of the point
+     * @var string
+     */
+    protected $_id;
 
-    private $_name;
+    /**
+     * _name 
+     * 
+     * Label of the point
+     * @var string
+     */
+    protected $_name;
 
-    private $_logoUrl;
+    /**
+     * _logoUrl 
+     * 
+     * logo url of the point
+     * @var string
+     */
+    protected $_logoUrl;
 
-    private $_order;
+    /**
+     * _order 
+     * 
+     * oder of the point
+     * @var integer
+     */
+    protected $_order;
 
-    private $_userId;
+    /**
+     * _userId 
+     * 
+     * id of the owner
+     * @var integer
+     */
+    protected $_userId;
 
-    private $_user;
+    /**
+     * _user 
+     * 
+     * owner of the point
+     * @var Ting/Model/User
+     */
+    protected $_user;
+
+    /**
+     * _isPublic 
+     * 
+     * @var bool 
+     * @access protected
+     */
+    protected $_isPublic;
 
 }

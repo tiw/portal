@@ -5,12 +5,16 @@ class PointsController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        $this->_helper->contextSwitch()
+            ->addActionContext('add', 'json')
+            ->addActionContext('delete', 'json')
+            ->addActionContext('change-order', 'json')
+            ->initContext();
     }
 
     public function indexAction()
     {
-        // action body
+        $this->view->points = array();
     }
 
     public function addAction()

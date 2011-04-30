@@ -1,4 +1,4 @@
-SetEnv ting_dev
+SetEnv APPLICATION_ENV ting_dev
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} -s [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
