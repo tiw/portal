@@ -39,8 +39,10 @@ class Point
                 throw new 
                     \Ting\Exception\Dal\DataMapper\PublicPointCannotBeChanged();
             }
+            $where = $this->_dbTable
+                ->getAdapter()->quoteInto('id = ?', $point->getId());
             return $this->_dbTable
-                ->update($data, array('id = ?', $point->getId()));
+                ->update($data, $where);
         }
     }
     public function isPublic($point)
@@ -85,10 +87,15 @@ class Point
         $rows = $this->_dbTable->fetchAll($select);
         foreach($rows as $row) {
             $point = $this->_rowToObject($row);
-            if (!is_null($object)) {
+            if (!is_null($point)) {
                 $publicPoints[] = $point;
             }
         }
         return $publicPoints;
+    }
+    public function delete($id)
+    {
+        $where = $this->_dbTable->getAdapter()->quoteInto('id = ?', $id);
+        return $this->_dbTable->delete($where);
     }
 }

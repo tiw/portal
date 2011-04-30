@@ -12,7 +12,7 @@
  * @license  GPL
  */
 
-namespace Ting\Model
+namespace Ting\Model;
 /**
  * Model class for Point 
  * 
@@ -50,12 +50,19 @@ class Point extends Base
     protected $_logoUrl;
 
     /**
-     * _order 
+     * _link 
+     * 
+     * @var string
+     * @access protected
+     */
+    protected $_link;
+    /**
+     * _position
      * 
      * oder of the point
      * @var integer
      */
-    protected $_order;
+    protected $_position;
 
     /**
      * _userId 
