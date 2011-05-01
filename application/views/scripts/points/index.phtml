@@ -3,7 +3,16 @@
     <ul class="pointsList">
 <?php
 foreach($this->points as $point){
-    echo $point;
+    echo "<li id = \"points-{$point->getId()}\" class=\"points\">";
+    echo "<div class=\"text\" ";
+    echo "<a href=\"{$point->getLink()}\">{$point->getName()}</a>";
+    echo "</div>";
+    if($point->getIsPublic() != 1) {
+        echo "<div class=\"actions\">";
+        echo "<a href=\"#\" class=\"delete\">Delete</a>";
+        echo "</div>";
+    }
+    echo "</li>";
 }
 
 ?>

@@ -67,6 +67,13 @@ class UserPointTest extends \Ting\Test\DalTestBase
         $this->assertEquals(-1,
             $this->_userPointMapper->findPosition($point, $user));
     }
+    /**
+     * testAddNewUserPoint 
+     * 
+     * @access public
+     * @return void
+     * @depends testFindPoistion
+     */
     public function testAddNewUserPoint()
     {
         $user = new \Ting\Model\User();

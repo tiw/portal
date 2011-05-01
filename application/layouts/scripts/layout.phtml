@@ -11,10 +11,13 @@ echo $this->doctype();
         );
      echo $this->headMeta() ?>
   <?php echo $this->headScript() ?>
-
-    </style>
-<script style="text/javascript" src="<?php echo $this->baseUrl()?>/js/common.js"></script>
-<script style="text/javascript" src="<?php echo $this->baseUrl()?>/js/grid.js"></script>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/themes/humanity/jquery-ui.css" type="text/css" media="all" />
+<style type="text/css">
+  @import "<?php echo $this->baseUrl()?>/css/styles.css";
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<script style="text/javascript" src="<?php echo $this->baseUrl()?>/js/points.js"></script>
 
 </head>
 <body >

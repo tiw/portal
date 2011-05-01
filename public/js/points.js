@@ -5,16 +5,16 @@ $(document).ready(function(){
         update        : function(){        // The function is called after the todos are rearranged
         
             // The toArray method returns an array with the ids of the todos
-            var arr = $(".pointList").sortable('toArray');
+            var arr = $(".pointsList").sortable('toArray');
             
             // Striping the todo- prefix of the ids:
             
             arr = $.map(arr,function(val,key){
-                return val.replace('todo-','');
+                return val.replace('points-','');
             });
             
             // Saving with AJAX
-            $.get('ajax.php',{action:'rearrange',positions:arr});
+            $.get('change-order',{format: 'json', positions:arr});
         },
         
         /* Opera fix: */
@@ -38,7 +38,7 @@ $(document).ready(function(){
         buttons: {
             'Delete item': function() {
                 
-                $.get("ajax.php",{"action":"delete","id":currentTODO.data('id')},function(msg){
+                $.get("",{"action":"delete","id":currentTODO.data('id')},function(msg){
                     currentTODO.fadeOut('fast');
                 })
                 
@@ -51,30 +51,30 @@ $(document).ready(function(){
     });
 
     // When a double click occurs, just simulate a click on the edit button:
-    $('.todo').live('dblclick',function(){
+    $('.points').live('dblclick',function(){
         $(this).find('a.edit').click();
     });
     
     // If any link in the todo is clicked, assign
     // the todo item to the currentTODO variable for later use.
 
-    $('.todo a').live('click',function(e){
+    $('.points a').live('click',function(e){
                                        
-        currentTODO = $(this).closest('.todo');
-        currentTODO.data('id',currentTODO.attr('id').replace('todo-',''));
+        currentTODO = $(this).closest('.points');
+        currentTODO.data('id',currentTODO.attr('id').replace('points-',''));
         
         e.preventDefault();
     });
 
     // Listening for a click on a delete button:
 
-    $('.todo a.delete').live('click',function(){
+    $('.points a.delete').live('click',function(){
         $("#dialog-confirm").dialog('open');
     });
     
     // Listening for a click on a edit button
     
-    $('.todo a.edit').live('click',function(){
+    $('.points a.edit').live('click',function(){
 
         var container = currentTODO.find('.text');
         
@@ -104,7 +104,7 @@ $(document).ready(function(){
     
     // The cancel edit link:
     
-    $('.todo a.discardChanges').live('click',function(){
+    $('.points a.discardChanges').live('click',function(){
         currentTODO.find('.text')
                     .text(currentTODO.data('origText'))
                     .end()
@@ -113,7 +113,7 @@ $(document).ready(function(){
     
     // The save changes link:
     
-    $('.todo a.saveChanges').live('click',function(){
+    $('.points a.saveChanges').live('click',function(){
         var text = currentTODO.find("input[type=text]").val();
         
         $.get("ajax.php",{'action':'edit','id':currentTODO.data('id'),'text':text});
@@ -135,7 +135,7 @@ $(document).ready(function(){
         $.get("ajax.php",{'action':'new','text':'New Todo Item. Doubleclick to Edit.','rand':Math.random()},function(msg){
 
             // Appending the new todo and fading it into view:
-            $(msg).hide().appendTo('.todoList').fadeIn();
+            $(msg).hide().appendTo('.pointsList').fadeIn();
         });
 
         // Updating the timestamp:
