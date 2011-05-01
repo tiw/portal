@@ -14,7 +14,7 @@ $(document).ready(function(){
             });
             
             // Saving with AJAX
-            $.get('change-order',{format: 'json', positions:arr});
+            $.get('/points/change-order',{format: 'json', positions:arr});
         },
         
         /* Opera fix: */
@@ -38,7 +38,7 @@ $(document).ready(function(){
         buttons: {
             'Delete item': function() {
                 
-                $.get("",{"action":"delete","id":currentTODO.data('id')},function(msg){
+                $.get("/points/delete",{"format":"json","id":currentTODO.data('id')},function(msg){
                     currentTODO.fadeOut('fast');
                 })
                 
@@ -124,25 +124,54 @@ $(document).ready(function(){
     });
     
     
-    // The Add New ToDo button:
     
-    var timestamp=0;
-    $('#addButton').click(function(e){
-
-        // Only one todo per 5 seconds is allowed:
-        if((new Date()).getTime() - timestamp<5000) return false;
-        
-        $.get("ajax.php",{'action':'new','text':'New Todo Item. Doubleclick to Edit.','rand':Math.random()},function(msg){
-
-            // Appending the new todo and fading it into view:
-            $(msg).hide().appendTo('.pointsList').fadeIn();
-        });
-
-        // Updating the timestamp:
-        timestamp = (new Date()).getTime();
-        
-        e.preventDefault();
+    $("#dialog-form").dialog({
+        resizable: false,
+        height:230,
+        modal: true,
+        autoOpen:false,
+        buttons: {
+            'save': function() {
+                
+                var name = $("#name"), link=$("#link");
+                $.get("/points/add",{'format':'json','name':name.val(),'link':link.val()},function(msg){
+                    //todo append list
+                    $(msg).hide().appendTo('.pointsList').fadeIn();
+                })
+                
+                $(this).dialog('close');
+            },
+            Cancel: function() {
+                $(this).dialog('close');
+            }
+        }
+    });
+    $('#addButton').live('click',function(){
+        $("#dialog-form").dialog('open');
     });
     
+    $("#login-form").dialog({
+        resizable: false,
+        height:230,
+        modal: true,
+        autoOpen:true,
+        buttons: {
+            'submit': function() {
+                var user_name = $("#user_name"), password=$("#password");
+                $.post("/auth/index",{'format':'json','user_name':user_name.val(),
+                       'password':password.val()},function(msg){
+                           console.debug(msg.status);
+                           if (1 == msg.status) {
+                               console.debug('close dialog');
+                               $('#login-form').dialog('close');
+                           } else {
+                               alert('wrong password or username');
+                           }
+                       })
+            },
+        },
+        closeOnEscape: false,
+        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
+    });
 }); // Closing $(document).ready()
 

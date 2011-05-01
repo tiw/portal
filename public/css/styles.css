@@ -121,6 +121,11 @@ a.saveChanges{
 	padding:1em 1em 0;
 }
 
+#dialog-form{
+	display:none;
+	font-size:0.9em;
+	padding:1em 1em 0;
+}
 #addButton{
 	margin:20px auto;
 }
@@ -200,3 +205,11 @@ a:hover{
 a img{
 	border:none;
 }
+#add-point-form fieldset{
+    height: 80px;
+    border:none;
+}
+label, input {
+    display: block;
+}
+

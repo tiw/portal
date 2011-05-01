@@ -1,10 +1,25 @@
+<?php
+if  (!$this->login) {
+?>
+<div class="dialog-form" id="login-form" title="Login"> 
+<form id="login">
+    <label for="user_name">Name</label> 
+    <input id="user_name" name="user_name"></input>
+    <label for="password">Password</label> 
+    <input type="password" id="password" name="password"></input>
+</form>
+</div> 
+<?php
+}
+?>
+
 <div id="main">
 
     <ul class="pointsList">
 <?php
 foreach($this->points as $point){
     echo "<li id = \"points-{$point->getId()}\" class=\"points\">";
-    echo "<div class=\"text\" ";
+    echo "<div class=\"text\"> ";
     echo "<a href=\"{$point->getLink()}\">{$point->getName()}</a>";
     echo "</div>";
     if($point->getIsPublic() != 1) {
@@ -19,6 +34,20 @@ foreach($this->points as $point){
 
     </ul>
 
-<a id="addButton" class="green-button" href="#">Add a ToDo</a>
+<a id="addButton" class="green-button" href="#">Add</a>
 
 </div>
+<div id="dialog-confirm" title="Delete TODO Item?">Are you sure you want to delete this item?</div>
+
+<div class="dialog-form" id="dialog-form" title="Create new item"> 
+ 
+	<form id="add-point-form"> 
+	<fieldset> 
+		<label for="name">Name</label> 
+		<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" /> 
+		<label for="link">link</label> 
+		<input type="text" name="link" id="link" value="" class="text ui-widget-content ui-corner-all" /> 
+	</fieldset> 
+	</form> 
+</div> 
+ 

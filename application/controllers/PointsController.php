@@ -7,29 +7,37 @@ class PointsController extends Zend_Controller_Action
     public function init()
     {
         $this->_helper->contextSwitch()
-            ->addActionContext('add', 'json')
             ->addActionContext('delete', 'json')
             ->addActionContext('change-order', 'json')
             ->initContext();
         $this->_pointMapper = new \Ting\Dal\DataMapper\Point();
         $this->_userPointMapper = new \Ting\Dal\DataMapper\UserPoint();
-        $this->_user = new \Ting\Model\User();
-        $this->_user->setId(1);
+        $auth = Zend_Auth::getInstance();
+
+        if ($auth->hasIdentity()) {
+            $this->_user = $auth->getIdentity(); 
+        }
     }
 
     public function indexAction()
     {
-        $points = $this->_pointMapper->findUsersPoints($this->_user);
-        if (count($points) === 0) {
-            $points = $this->_pointMapper->findPublicPoints();
-            $i = 0;
-            foreach ($points as $point) {
-                // insert into user-point
-                $this->_userPointMapper->save($point, $this->_user, $i);
-                $i ++;
+        $login = false;
+        $points = array();
+        if (\Zend_Auth::getInstance()->hasIdentity()) {
+            $login = true;
+            $points = $this->_pointMapper->findUsersPoints($this->_user);
+            if (count($points) === 0) {
+                $points = $this->_pointMapper->findPublicPoints();
+                $i = 0;
+                foreach ($points as $point) {
+                    // insert into user-point
+                    $this->_userPointMapper->save($point, $this->_user, $i);
+                    $i ++;
+                }
             }
         }
         $this->view->points = $points;
+        $this->view->login = $login;
     }
 
     public function addAction()
@@ -41,7 +49,15 @@ class PointsController extends Zend_Controller_Action
         $point->setName($name);
         $point->setLink($link);
         $id = $this->_pointMapper->save($point, $this->_user);
-        $this->view->id = $id;
+        $point = <<<EOF
+<li id="points-{$id}" class="points">
+  <div class="text"><a href="{$point->getLink()}">{$point->getName()}</a></div>
+  <div class="actions">
+    <a href="#" class="delete">Delete</a>
+   </div>
+</li>
+EOF;
+        echo $point;die;
     }
 
     public function deleteAction()
@@ -52,7 +68,7 @@ class PointsController extends Zend_Controller_Action
         $point = $this->_pointMapper->findById($id);
         if(!is_null($point)) {
             $this->_pointMapper->delete($point);
-            $this->_userPointMapper->delete($point, $user);
+            $result = $this->_userPointMapper->delete($point, $this->_user);
         }
     }
 

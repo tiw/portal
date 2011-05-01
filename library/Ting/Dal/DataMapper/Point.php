@@ -151,8 +151,9 @@ class Point
         }
         return $publicPoints;
     }
-    public function delete($id)
+    public function delete($point)
     {
+        $id = $point->getId();
         $where = $this->_dbTable->getAdapter()->quoteInto('id = ?', $id);
         return $this->_dbTable->delete($where);
     }

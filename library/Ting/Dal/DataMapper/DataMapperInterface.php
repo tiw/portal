@@ -5,6 +5,6 @@ namespace Ting\Dal\DataMapper;
 interface DataMapperInterface
 {
     public function save();
-    public function findById();
+    public function findById($id);
 }
 
