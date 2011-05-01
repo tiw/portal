@@ -1,4 +1,5 @@
 * Install
+** copy the source code to a vhost and set public direcotry as the root directory
 ** Create and initialize database
     A ant task could be used to create database and insert the public points
     and test user. The test username and password are 'amdin'
@@ -9,5 +10,7 @@
     >cd deployment
     >ant init
 ** Config database
-    config your database info in applicaton/config/applicaiton.ini
+    Config your database info in applicaton/config/applicaiton.ini, according
+    to the database info in build.property
+
 

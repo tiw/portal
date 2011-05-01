@@ -1,8 +1,27 @@
 <?php
 
+/**
+ * auth controller
+ * mangage the authentification of the user
+ *
+ * PHP version 5.3
+ *
+ * @category Controller
+ * @package Controller
+ * @version $id$
+ * @copyright ting wang <tting.wang@gmail.com>
+ * @author Ting Wang 
+ * @license  
+ */
 class AuthController extends Zend_Controller_Action
 {
 
+    /**
+     * init 
+     * 
+     * @access public
+     * @return void
+     */
     public function init()
     {
         $this->_helper->contextSwitch()
@@ -10,6 +29,12 @@ class AuthController extends Zend_Controller_Action
             ->initContext();
     }
 
+    /**
+     * indexAction 
+     * 
+     * @access public
+     * @return void
+     */
     public function indexAction()
     {
         $request = $this->getRequest();
@@ -24,12 +49,25 @@ class AuthController extends Zend_Controller_Action
         }       
     }
 
+    /**
+     * logoutAction 
+     * 
+     * @access public
+     * @return void
+     */
     public function logoutAction()
     {
         \Zend_Auth::getInstance()->clearIdentity();
         $this->_helper->redirector('/points/');
     }
     
+    /**
+     * _process 
+     * 
+     * @param mixed $values 
+     * @access protected
+     * @return void
+     */
     protected function _process($values)
     {
         $adapter = $this->_getAuthAdapter();
@@ -50,6 +88,12 @@ class AuthController extends Zend_Controller_Action
         }
     }
     
+    /**
+     * _getAuthAdapter 
+     * 
+     * @access protected
+     * @return void
+     */
     protected function _getAuthAdapter()
     {
         $dbAdapter = Zend_Db_Table::getDefaultAdapter();

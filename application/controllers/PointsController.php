@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * point controller
+ * mangage the points
+ *
+ * PHP version 5.3
+ *
+ * @category Controller
+ * @package Controller
+ * @version $id$
+ * @copyright ting wang <tting.wang@gmail.com>
+ * @author Ting Wang 
+ * @license  
+ */
 class PointsController extends Zend_Controller_Action
 {
 
