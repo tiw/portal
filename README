@@ -1,3 +1,9 @@
+
+* Notice
+    Frontend (javascript and css) is adapted according to the tutorial: 
+    http://tutorialzine.com/2010/03/ajax-todo-list-jquery-php-mysql-css/
+    I use normally dojo instead of jquery for the work.
+
 * Install
 ** copy the source code to a vhost and set public direcotry as the root directory
 ** Create and initialize database
