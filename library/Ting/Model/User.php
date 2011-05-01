@@ -12,7 +12,7 @@
  * @license  GPL
  */
 
-namespace Ting\Model
+namespace Ting\Model;
 /**
  * Model class for User 
  * 

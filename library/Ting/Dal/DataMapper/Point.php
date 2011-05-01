@@ -20,21 +20,23 @@ class Point
      *  save a point
      *  just private point can be saved
      *  public point is protected
-     * @param mixed $point 
+     * @param \Ting\Model\Point $point 
+     * @param \Ting\Model\User $user
      * @access public
      * @return void
      */
-    public function save($point)
+    public function save($point, $user)
     {
         $data = array(
             "name" => $point->getName(),
             "link" => $point->getLink(),
             "logo_url" => $point->getLogoUrl(),
-            "position" => $point->getPosition(),
         );
+        // new point
         if (is_null($point->getId())) {
             return $this->_dbTable->insert($data);
         } else {
+            // old point
             if ($this->isPublic($point)) {
                 throw new 
                     \Ting\Exception\Dal\DataMapper\PublicPointCannotBeChanged();
@@ -44,6 +46,11 @@ class Point
             return $this->_dbTable
                 ->update($data, $where);
         }
+    }
+    private function _saveUserPoint($point, $user)
+    {
+        $userPointDataMapper = new \Ting\Dal\DataMapper\UserPoint();
+        $userPointDataMapper->save($point, $user); 
     }
     public function isPublic($point)
     {
@@ -63,12 +70,18 @@ class Point
                   ->setName($row->name)
                   ->setLink($row->link)
                   ->setLogoUrl($row->logo_url)
-                  ->setPosition($row->position)
                   ->setIsPublic($row->is_public);
             return $point;
         }
         return null;
     }
+    /**
+     * findUsersPoints 
+     * 
+     * @param mixed $user 
+     * @access public
+     * @return void
+     */
     public function findUsersPoints($user)
     {
         $points = array();
@@ -76,7 +89,9 @@ class Point
         $select = $userPointTable->select()->where('id_user= ?', $user->getId());
         $rows = $table->fetchAll($select);
         foreach($rows as $row) {
-            $points[] = $this->findById($row->id_point);
+            $aPoint =  $this->findById($row->id_point);
+            $aPoint->setPosition($row->position);
+            $points[] = $aPoint;
         }
         return $points;
     }

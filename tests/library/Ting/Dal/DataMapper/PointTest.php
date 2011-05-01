@@ -2,6 +2,16 @@
 
 namespace Ting\Dal\DataMapper;
 
+/**
+ * PointTest 
+ * 
+ * @category
+ * @package 
+ * @version $id$
+ * @copyright 
+ * @author Ting Wang 
+ * @license 
+ */
 class PointTest extends \Ting\Test\DalTestBase
 {
     /**
@@ -42,7 +52,9 @@ class PointTest extends \Ting\Test\DalTestBase
         $point->setName('bla');
         $point->setLink('http://bla/bar');
         $point->setPosition(1);
-        $id = $this->_pointMapper->save($point);
+        $user = new \Ting\Model\User();
+        $user->setId('1');
+        $id = $this->_pointMapper->save($point, $user);
         $pointNew = $this->_pointMapper->findById($id);
         $this->assertEquals('bla', $pointNew->getName());
         $this->_pointMapper->delete($id);
@@ -59,7 +71,9 @@ class PointTest extends \Ting\Test\DalTestBase
         $id = $this->getInsertedId('point1');
         $point = $this->_pointMapper->findById($id);
         $point->setName('not foo');
-        $this->_pointMapper->save($point);
+        $user = new \Ting\Model\User();
+        $user->setId($id);
+        $this->_pointMapper->save($point, $user);
         $pointNew = $this->_pointMapper->findById($id);
         $this->assertEquals('not foo', $pointNew->getName());
     }
@@ -88,13 +102,16 @@ class PointTest extends \Ting\Test\DalTestBase
         $point = new \Ting\Model\Point();
         $point->setId($id);
 
+        $user = new \Ting\Model\User();
+        $user->setId(1);
         try{
-            $this->_pointMapper->save($point);
+            $this->_pointMapper->save($point, $user);
             $this->assertTrue(false, "no exception");
         } catch (\Ting\Exception\Dal\DataMapper\PublicPointCannotBeChanged $e) {
             $this->assertTrue(true);
         } catch (\Exception $e) {
-            $this->assertTrue(false, "not PublicPointCannotBeChanged excption");
+            $this->assertTrue(false, "not PublicPointCannotBeChanged excption ".
+                $e->getMessage());
         }
 
     }
