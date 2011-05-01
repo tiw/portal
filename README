@@ -1,0 +1,13 @@
+* Install
+** Create and initialize database
+    A ant task could be used to create database and insert the public points
+    and test user. The test username and password are 'amdin'
+
+*** config database
+    >vi build.property
+    > .... config your database info
+    >cd deployment
+    >ant init
+** Config database
+    config your database info in applicaton/config/applicaiton.ini
+
