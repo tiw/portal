@@ -67,7 +67,10 @@
     <taskdef name="mw_drop" classname="com.mweb.ant.DropDatabases" classpathref="mweb.classpath"/>
     <taskdef name="mw_create_db" classname="com.mweb.ant.CreateDatabase" classpathref="mweb.classpath"/>
 
-    <target name="init"></target>
+    <target name="init" 
+        description="initialize database"
+        depends="drop-create-db, create-changelog-table, migrate">
+    </target>
     <target name="clean"></target>
    <!-- drop the dev dbs and create fresh dev dbs -->
     <target name="drop-create-db">

@@ -160,10 +160,15 @@ $(document).ready(function(){
                 var user_name = $("#user_name"), password=$("#password");
                 $.post("/auth/index",{'format':'json','user_name':user_name.val(),
                        'password':password.val()},function(msg){
-                           console.debug(msg.status);
+                           //console.debug(msg.status);
                            if (1 == msg.status) {
-                               console.debug('close dialog');
+                               //console.debug('close dialog');
                                $('#login-form').dialog('close');
+                               // update pane
+                               $.get("/points/get-list", {},function(list){
+                                   //console.debug(list);
+                                   $(list).hide().appendTo('.pointsList').fadeIn();
+                               })
                            } else {
                                alert('wrong password or username');
                            }

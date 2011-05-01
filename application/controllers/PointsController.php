@@ -25,7 +25,7 @@ class PointsController extends Zend_Controller_Action
         $points = array();
         if (\Zend_Auth::getInstance()->hasIdentity()) {
             $login = true;
-            $points = $this->_pointMapper->findUsersPoints($this->_user);
+            $points = $this->_pointMapper->finduserspoints($this->_user);
             if (count($points) === 0) {
                 $points = $this->_pointMapper->findPublicPoints();
                 $i = 0;
@@ -36,10 +36,28 @@ class PointsController extends Zend_Controller_Action
                 }
             }
         }
+
         $this->view->points = $points;
         $this->view->login = $login;
     }
 
+    public function getListAction()
+    {
+        $points = $this->_pointMapper->finduserspoints($this->_user);
+        foreach($points as $point){
+            echo "<li id = \"points-{$point->getId()}\" class=\"points\">";
+            echo "<div class=\"text\"> ";
+            echo "<a href=\"{$point->getLink()}\">{$point->getName()}</a>";
+            echo "</div>";
+            if($point->getIsPublic() != 1) {
+                echo "<div class=\"actions\">";
+                echo "<a href=\"#\" class=\"delete\">Delete</a>";
+                echo "</div>";
+            }
+            echo "</li>";
+        }
+        die;
+    }
     public function addAction()
     {
         $request = $this->getRequest();

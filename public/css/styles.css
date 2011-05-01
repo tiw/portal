@@ -133,24 +133,26 @@ a.saveChanges{
 
 /* Green button class: */
 
-a.green-button,
-a.green-button:visited{
-	color:black;
-	display:block;
-	font-size:10px;
-	font-weight:bold;
-	height:15px;
-	padding:6px 5px 4px;
+.green-button,
+.green-button:visited{
+	margin:0 auto;
+	width:500px;
+  color:white;
 	text-align:center;
-	width:60px;
-	
-	text-shadow:1px 1px 1px #DDDDDD;
-	background:url("../img/button_green.png") no-repeat left top;
 }
 
-a.green-button:hover{
-	text-decoration:none;
-	background-position:left bottom;
+.green-button:hover{
+    padding-top:10px;
+    padding-bottom:10px;
+    color:black;
+    background-color:#F9F9F9;
+    border:1px solid #EEEEEE;
+	text-shadow:1px 1px 0 white;
+	
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	font-size:1.4em;
 }
 
 

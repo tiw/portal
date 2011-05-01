@@ -15,7 +15,7 @@ if  (!$this->login) {
 
 <div id="main">
 
-    <ul class="pointsList">
+    <ul id="pointsList" class="pointsList">
 <?php
 foreach($this->points as $point){
     echo "<li id = \"points-{$point->getId()}\" class=\"points\">";
@@ -34,7 +34,7 @@ foreach($this->points as $point){
 
     </ul>
 
-<a id="addButton" class="green-button" href="#">Add</a>
+<div id="addButton" class="green-button" >Add</div>
 
 </div>
 <div id="dialog-confirm" title="Delete TODO Item?">Are you sure you want to delete this item?</div>
