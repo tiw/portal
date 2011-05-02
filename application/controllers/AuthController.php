@@ -82,6 +82,10 @@ class AuthController extends Zend_Controller_Action
             $user->setName($row->name);
             $user->setId($row->id);
             $auth->getStorage()->write($user);
+            if (1 == $values[ 'rememberme' ]) {
+                $seconds = 60 * 60 * 24 * 14; // 8 days
+                Zend_Session::rememberMe($seconds);
+            }
             return true;
         } else {
             return false;

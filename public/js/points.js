@@ -157,9 +157,16 @@ $(document).ready(function(){
         autoOpen:true,
         buttons: {
             'submit': function() {
-                var user_name = $("#user_name"), password=$("#password");
-                $.post("/auth/index",{'format':'json','user_name':user_name.val(),
-                       'password':password.val()},function(msg){
+                var user_name = $("#user_name"), password=$("#password"),
+                    rememberme = $("#rememberme");
+                $.post("/auth/index",
+                       {
+                           'format':'json',
+                           'user_name':user_name.val(),
+                           'password':password.val(),
+                           'rememberme':rememberme.val()
+                       },
+                       function(msg){
                            //console.debug(msg.status);
                            if (1 == msg.status) {
                                //console.debug('close dialog');

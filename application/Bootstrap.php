@@ -13,6 +13,5 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $authPlugin = new \Ting\Controller\Plugin\AuthPlugin();
         $frontController->registerPlugin($authPlugin);
     }
-
 }
 
