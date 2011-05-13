@@ -63,7 +63,7 @@ $(document).ready(function(){
         currentTODO = $(this).closest('.points');
         currentTODO.data('id',currentTODO.attr('id').replace('points-',''));
         
-        e.preventDefault();
+//        e.preventDefault();
     });
 
     // Listening for a click on a delete button:
