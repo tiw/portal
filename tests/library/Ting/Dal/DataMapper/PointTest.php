@@ -57,7 +57,7 @@ class PointTest extends \Ting\Test\DalTestBase
         $id = $this->_pointMapper->save($point, $user);
         $pointNew = $this->_pointMapper->findById($id);
         $this->assertEquals('bla', $pointNew->getName());
-        $this->_pointMapper->delete($id);
+        $this->_pointMapper->delete($pointNew);
     }
     /**
      * testUpdatePoint 
