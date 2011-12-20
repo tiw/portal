@@ -17,6 +17,7 @@ class Point
         $this->_dbTable = $dbTable;
        $this->_userPointMapper = new UserPoint();
     }
+
     /**
      * save 
      *  save a point
@@ -58,21 +59,25 @@ class Point
                 ->update($data, $where);
         }
     }
+
     private function _saveUserPoint($point, $user)
     {
         $userPointDataMapper = new \Ting\Dal\DataMapper\UserPoint();
         $userPointDataMapper->save($point, $user); 
     }
+
     public function isPublic($point)
     {
         $point = $this->findById($point->getId());
         return (1 == $point->getIsPublic());
     }
+
     public function findById($id)
     {
         $row = $this->_dbTable->find($id)->current();
         return $this->_rowToObject($row);
     }
+
     /**
      * update the point Position 
      * 
@@ -90,6 +95,7 @@ class Point
             $this->_userPointMapper->save($point, $user, $position);
         }
     }
+
     private function _rowToObject($row)
     {
         if (!is_null($row)) {
@@ -126,6 +132,7 @@ class Point
         }
         return $points;
     }
+
     public function getLastUserPointPosition($user)
     {
         $points = $this->findUsersPoints($user);
@@ -138,6 +145,7 @@ class Point
         return $maxPosition;
 
     }
+
     public function findPublicPoints()
     {
         $publicPoints = array();
@@ -151,10 +159,12 @@ class Point
         }
         return $publicPoints;
     }
+
     public function delete($point)
     {
         $id = $point->getId();
         $where = $this->_dbTable->getAdapter()->quoteInto('id = ?', $id);
         return $this->_dbTable->delete($where);
     }
+
 }

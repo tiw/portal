@@ -26,6 +26,7 @@ namespace Ting\Model;
 
 class Base
 {
+    private $_properties;
 
     /**
      * __construct 
@@ -47,6 +48,7 @@ class Base
             }
         }
     }
+
     /**
      * __call 
      * dynamic get/set properties
@@ -78,6 +80,21 @@ class Base
         }
         throw new \Exception("can not get/set property " . $property);
     }
+
+
+    /**
+     * getProperties
+     * 
+     * @return array
+     */
+    public function getProperties()
+    {
+        if (is_null($this->_properties)) {
+            $this->_properties = get_object_vars($this);
+        }
+        return  $this->_properties;
+    }
+
     private function _isProperty($property)
     {
         $isProperty=false;
@@ -86,4 +103,5 @@ class Base
         }
         return $isProperty;
     }
+
 }
